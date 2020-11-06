@@ -1,15 +1,18 @@
-"shutdown" 
+# shutdown program
 
-choice = input("Enter Off/SD to shutdown or S/On to sleep:)
+import os 
+choice = input("Enter Off/SD to shutdown or S/On to shutdown in hours or No to exit the program:")
 
 if choice == "off" or choice == "Off" or choice == "SD" or choice == "sd":
     print("You turn off your computer in 10 seconds")
     
-    shutdown -s -t 10
+    os.system("shutdown -s -t 10")
 
-eliif choice == "on" or choice == "On" or choice == "S" or choice == "s":
-    print("You chose to turn off your computer in hour")
+elif choice == "on" or choice == "On" or choice == "S" or choice == "s":
+    print("You chose to turn off your computer in hours")
     time = input("Write in how many hours would you like to put your PC off:")
-    count = time/3600
+    count = round(time*3600, 0)
 
-    shutdown -s -t time/3600
+    os.system("shutdown -s -t count")
+elif choice == "no" or choice == "No":
+    exit()
